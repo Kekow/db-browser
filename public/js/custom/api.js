@@ -37,9 +37,9 @@ function ajaxRequestToApi(apiTarget, dataSend, successCallback, customBeforeSend
                 500
             );
         },
-        complete: function() {
+        complete: function(resultData) {
             if(customCompleteCallback)
-                customCompleteCallback();
+                customCompleteCallback(resultData);
         }
     });
 }

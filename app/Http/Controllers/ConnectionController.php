@@ -43,4 +43,29 @@ class ConnectionController extends Controller
             return ResultMessageBuilder::buildErrorMessage( $e->getMessage() );
         }
     }
+
+    public function storeConnection(Request $request)
+    {
+        try {
+            Connection::storeConnection($request);    
+
+            return json_encode(['success' => 'false']);
+        } catch (Exception $ex) {
+            return json_encode(['success' => 'false']);
+        }
+    }
+
+    public function validateStoreConnection(Request $request)
+    {
+        $validStoreConnection = Connection::validateStoreConnection($request);
+
+        return \json_encode($validStoreConnection);
+    }
+
+    public function getConnectionInfo(Request $request) 
+    {
+        $connectionInfo = Connection::getConnectionInfo($request);
+
+        return \json_encode($connectionInfo);
+    }
 }

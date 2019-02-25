@@ -24,6 +24,9 @@ Route::prefix('api')->group(function ()
 	Route::get('connect', ['as' => 'api.connection.connect', 'uses' => 'ConnectionController@connect']);
 	Route::get('disconnect', ['as' => 'api.connection.disconnect', 'uses' => 'ConnectionController@disconnect']);
 	Route::get('test-connection', ['as' => 'api.connection.test', 'uses' => 'ConnectionController@testConnection']);
+	Route::get('info-connection', ['as' => 'api.connection.info', 'uses' => 'ConnectionController@getConnectionInfo']);
+	Route::get('store-connection', ['as' => 'api.connection.store', 'uses' => 'ConnectionController@storeConnection']);
+	Route::get('store-validation-connection', ['as' => 'api.connection.store.validation', 'uses' => 'ConnectionController@validateStoreConnection']);
 
 	// Database Data Management Routes.
 	Route::get('database-data/get', ['as' => 'api.database-data.get', 'uses' => 'DatabaseDataController@get']);

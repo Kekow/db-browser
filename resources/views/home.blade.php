@@ -68,6 +68,9 @@
 
 @section('custom-js')
     <script type="text/javascript" src="{{ asset('js/views/home.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/custom/swal.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/custom/connection-saver.js') }}"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
 @stop

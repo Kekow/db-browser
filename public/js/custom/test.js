@@ -1,8 +1,8 @@
 function fillConnectionData() {
-    $('select[name=driver]').val('mysql');
-    $('input[name=database]').val('sql10278995');
-    $('input[name=hostname]').val('sql10.freemysqlhosting.net');
-    $('input[name=port]').val('3306');
-    $('input[name=username]').val('sql10278995');
-    $('input[name=password]').val('lnatI2agyy');
+    $('select[name=driver]').val('pgsql');
+    $('input[name=database]').val('liberdb');
+    $('input[name=hostname]').val('liberdb');
+    $('input[name=port]').val('5432');
+    $('input[name=username]').val('postgres');
+    $('input[name=password]').val('tbx-liberdb');
 }
