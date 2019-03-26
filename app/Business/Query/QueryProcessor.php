@@ -123,10 +123,10 @@ class QueryProcessor
      */
     private function loadExecutor()
     {
-        $queryExecutorProcessor = new QueryIdentifier();
-        $queryExecutorProcessor->setQuery($this->query);
+        $queryIdentifier = new QueryIdentifier();
+        $queryIdentifier->setQuery($this->query);
 
-        $this->executor = $queryExecutorProcessor->getExecutor();
+        $this->executor = $queryIdentifier->getExecutor();
         $this->executor->setConnection($this->connection);
         $this->executor->setSchemaName($this->schemaName);
         $this->executor->setSchemaCharset($this->schemaCharset);

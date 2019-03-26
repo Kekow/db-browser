@@ -12,7 +12,6 @@ class QueryRunner {
         };
 
         let completeCallback = function(runResult, bind) {
-            console.log(runResult.responseJSON);
             bind.queryRunResult = runResult.responseJSON;
             bind.showQueryResult(bind);
         }

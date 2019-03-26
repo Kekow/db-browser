@@ -3,6 +3,7 @@
 namespace App\Business\Query;
 
 use App\Business\Query\Executor\AnyExecutor;
+use App\Business\Query\Executor\CreateExecutor;
 use App\Business\Query\Executor\DeleteExecutor;
 use App\Business\Query\Executor\InsertExecutor;
 use App\Business\Query\Executor\QueryExecutor;
@@ -42,6 +43,11 @@ class QueryIdentifier
     private $deleteExecutor;
 
     /**
+     * @var CreateExecutor An Create Executor to the query.
+     */
+    private $createExecutor;
+
+    /**
      * @var AnyExecutor An Any Executor to the query.
      */
     private $anyExecutor;
@@ -67,6 +73,7 @@ class QueryIdentifier
         $this->loadInsertExecutor();
         $this->loadUpdateExecutor();
         $this->loadDeleteExecutor();
+        $this->loadCreateExecutor();
         $this->loadAnyExecutor();
 
         if ($this->selectExecutor->queryMatch())
@@ -80,6 +87,9 @@ class QueryIdentifier
 
         if ($this->deleteExecutor->queryMatch())
             return $this->deleteExecutor;
+
+        if ($this->createExecutor->queryMatch())
+            return $this->createExecutor;
 
         return $this->anyExecutor;
     }
@@ -118,6 +128,15 @@ class QueryIdentifier
     {
         $this->deleteExecutor = new DeleteExecutor();
         $this->deleteExecutor->setQuery($this->query);
+    }
+
+     /**
+     * Loads a Create Executor to the query.
+     */
+    private function loadCreateExecutor()
+    {
+        $this->createExecutor = new CreateExecutor();
+        $this->createExecutor->setQuery($this->query);
     }
 
     /**
